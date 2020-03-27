@@ -30,7 +30,7 @@ for file in os.listdir(path):
                 stops[stop].append((lat,long))
                 linecount+=1    
 
-        stopFile = 'Stops/' + filename + 'Stops.csv'
+        stopFile = 'Stops/' + filename + 'RestrictedStops.csv'
 
         with open(stopFile, 'w', newline='') as csvfile:
 
@@ -52,8 +52,10 @@ for file in os.listdir(path):
                     long+=float(eval(point[1]))
                 lat = lat/count
                 long = long/count
-                        
-                writer.writerow([stopId,lat,long,count])
+
+                if count > 30:                        
+                    writer.writerow([stopId,lat,long,count])
+                    
                 stopId +=1
 
     if filename[0] == 'u':
@@ -78,7 +80,7 @@ for file in os.listdir(path):
                 stops[stop].append((lat,long))
                 linecount+=1
 
-        stopFile = 'Stops/' + filename + 'Stops.csv'
+        stopFile = 'Stops/' + filename + 'RestrictedStops.csv'
 
         with open(stopFile, 'w', newline='') as csvfile:
 
@@ -101,5 +103,7 @@ for file in os.listdir(path):
                 lat = lat/count
                 long = long/count
                         
-                writer.writerow([stopId,lat,long,count])
+                if count > 30:                        
+                    writer.writerow([stopId,lat,long,count])
+                    
                 stopId +=1  
