@@ -2,7 +2,7 @@ import os
 import csv
 import geopy.distance
     
-f = open('PDAreaCabData.csv', "r")
+f = open('PDAreaCabDataOutlierFree.csv', "r")
 
 linecount = 0
 
@@ -49,6 +49,35 @@ def evaluateStops( stops, maxwalk, outputFile):
             
     print(outputFile, len(xpoints))
 
+new = []
+g = open('BusStops/Stops/rural430Stops.csv', 'r')
+lineno=0
+for line in g:
+    line=line.strip()
+    row = line.split(',')
+    if lineno == 0:
+        lineno +=1
+        continue
+    else:
+        lat= row[1]
+        long= row[2]
+        if int(row[3]) > 30:
+            new.append((lat,long))
+g = open('BusStops/Stops/urban525Stops.csv', 'r')
+lineno=0
+for line in g:
+    line=line.strip()
+    row = line.split(',')
+    if lineno == 0:
+        lineno +=1
+        continue
+    else:
+        lat= row[1]
+        long= row[2]
+        if int(row[3]) > 30:
+            new.append((lat,long))
+
+evaluateStops(new,0.142,'finalChoiceCorrected.csv')
 """
 g = open('sfgtfs/stops.txt', 'r')
 
@@ -70,6 +99,7 @@ evaluateStops(currentStops,0.142,'Evaluations/current142.csv')
 evaluateStops(currentStops,0.4,'Evaluations/current400.csv')
 """
 
+"""
 path ='BusStops/Stops'
 pairs=[[0,0],[0,0,],[0,0],[0,0],[0,0],[0,0],[0,0]]
 pos = 0
@@ -119,6 +149,7 @@ for pair in pairs:
     address = 'Evaluations/new'+address
 
     evaluateStops(newStops,0.142,address)
+"""
 
 """
 success 732131

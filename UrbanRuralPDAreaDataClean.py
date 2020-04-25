@@ -2,7 +2,7 @@ import os
 import csv
 from datetime import datetime
 
-with open('Urban.csv', 'w', newline='') as csvfile:
+with open('UrbanCheck.csv', 'w', newline='') as csvfile:
 
     writer = csv.writer(csvfile)
     toprow = ['TaxiId','Latitude','Longitude','Occupied','Time']
@@ -22,7 +22,6 @@ with open('Urban.csv', 'w', newline='') as csvfile:
             row[2] = float(row[2])
             if row[1] > 37.745000 and row[2] > -122.451800:
                 writer.writerow(row)
-            linecount +=1
 
 with open('Rural.csv', 'w', newline='') as csvfile:
 

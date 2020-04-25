@@ -6,7 +6,7 @@ import pytz
 linecount = 0
 count=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
-f=open('AreaCabData.csv', 'r')
+f=open('CabData.csv', 'r')
 
 for x in f:
     x=x.strip()
@@ -20,7 +20,7 @@ for x in f:
         t = int(t)
         tz = pytz.timezone('PST8PDT')
         dateAndTime = datetime.fromtimestamp(t, tz)
-        cabTime = dateAndTime.hour
+        cabTime = dateAndTime.weekday()
                             
         count[cabTime] +=1                           
                             
