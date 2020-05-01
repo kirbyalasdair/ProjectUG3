@@ -2,7 +2,7 @@ import os
 import csv
 from datetime import datetime
 
-with open('UrbanCheck.csv', 'w', newline='') as csvfile:
+with open('Urban.csv', 'w', newline='') as csvfile:
 
     writer = csv.writer(csvfile)
     toprow = ['TaxiId','Latitude','Longitude','Occupied','Time']
@@ -29,7 +29,7 @@ with open('Rural.csv', 'w', newline='') as csvfile:
     toprow = ['TaxiId','Latitude','Longitude','Occupied','Time']
     writer.writerow(toprow)
     
-    f = open('PDAreaCabData.csv', "r")
+    f = open('PDAreaCabDataOutlierFree.csv', "r")
 
     linecount = 0
 

@@ -1,7 +1,7 @@
 import os
 import csv
 
-f = open('AreaCabData.csv', "r")
+f = open('PDAreaCabData.csv', "r")
 
 linecount = 0
 
@@ -32,7 +32,7 @@ for x in g:
             if lat == x[1] and long == x[2]:
                 stops.remove(x)
         
-with open('AreaCabDataOutlierFree.csv', 'w', newline='') as csvfile:
+with open('PDAreaCabDataOutlierFree.csv', 'w', newline='') as csvfile:
 
     writer = csv.writer(csvfile)    
     toprow = ['TaxiId','Latitude','Longitude','Occupied','Time']
