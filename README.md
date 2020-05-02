@@ -28,3 +28,8 @@ In BusStops/:
 We had now decided on our final stop set 
     - We executed RouteEvaluation.py to find the uncovered points
   - finalChoiceCorrected.csv displays the points ot covered by our stops
+
+The current stops are located in sfgtfs/ stops.txt
+  - CurrentBusStopDistanceAnalysis.py performs analysis on the current stops
+  - We also executed RouteEvaluation.py on this stopset
+
